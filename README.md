@@ -1,6 +1,7 @@
 # instruments
 Plot detector counts over time for far-infrared instruments
 
+![instruments.png](https://raw.githubusercontent.com/sr-cdf/instruments/master/instruments.png)
 
 Add rows to the csv file and run the python script to generate the plot.
 
