@@ -1,0 +1,70 @@
+Instrument	Date	Field	Platform	Location	Detector_Type	Detector_Subtype	Frequencies	Wavelengths	Detector_Arrays	Total_Detectors		Reference
+												
+FIRST_TES	1995				Bolometer1	TES1				1		Bock et al
+FIRST_KID	2003				KID1	KID1				1		
+FIRST_LEKID	2008				KID1	LEKID1				1		
+BAM_FTS	1995	CMB	Balloon		Bolometer	Composite	110-250		2*1	2		Anisotropy In The Microwave Sky: Results From The First Flight Of Theballoon-Borne Anisotropy Measurement (BAM), Tucker+1996
+MAX91	1991	CMB	Balloon		Bolometer	NTD	180,270,360,		3	3		Preliminary Results From The Third Flight Of The Millimeter Anisotropy Experiment – Max, Devlin+1993
+FIRS	1988	CMB	Balloon		Bolometer	Monolithic Silicon		1.8,1.1.0.63,0.44,	4*1	4		A Large Scale Cosmic Background Anisotropy Measurement At Millimeter And Submillimeter Wavelengths Page+1990
+FIRAS	1989	CMB	Space	Cobe	Bolometer	Composite	30-3000		1*4	4		Design For The Cobe Far Infrared Absolute Spectrophotometer (FIRAS), Mather+2003
+MSAM	1992	CMB	Balloon		Bolometer	Monolithic Silicon	170,270,500,680,		4*1	4		A Balloon–Borne Millimeter–Wave Telescope For Cosmicmicrowave Background Anisotropy Measurements, Fixsen+1995
+ARGO	1993	CMB	Balloon		Bolometer	Composite		2.2,1.2,0.8,0.5,	4*1	4		Argo: A Balloon-Borne Telescope For Measurements Of The Millimeter Diffuse Sky Emission,De Bernardis+1993
+FIRP	1994	General Purpose	Space	 IRTS	Bolometer	NTD		150,250,400,700,	4	4		The Far-Infrared Photometer On The Infrared Telescope In Space,Lange+1994
+APACHE	1996	CMB	Ground	Concordia	Bolometer	Composite	90,140,247,359,	3,2.1,1.3,1.1	4*1	4		Apache96 Antarctic Plateau Anisotropy Chasing Experiment: First Observing Campaign Preliminary Results, L. Valenziano+1997
+SUZIE	1996	SZ	Ground	CSO	Bolometer	Composite	142,217,269,		3*2	6		The Sunyaev-Zeldovich Infrared Experiment: A Millimeter-Wave Receiver For Cluster Cosmology,Holzapfel+1996
+ARCHEOPS99	1999	CMB	Balloon		Bolometer	NTD	143,217,353,		3*2	6		"Archeops: A High Resolution, Large Sky Coverage Balloon Experiment For Mapping Cmb Anisotropies"", Benoit+2002"
+ACBAR	2001	CMB	Ground	VIPER	Bolometer	NTD	150,220,280,350,		8	8		Acbar: The Arcminute Cosmology Bolometer Array Receiver, Runyan+2003
+SUZIE2	1998	SZ	Ground	CSO	Bolometer	NTD	145,221,355,		4*3=12	12		Measurements Of Sunyaev-Zel'dovich Effect Scaling Relations For Clusters Of Galaxies,Benson+2004
+BOOMERANG98	1998	CMB	Balloon		Bolometer	NTD	90,150,145,245,345,		16	16		The Boomerang North America Instrument: A Balloon-Borne Bolometric Radiometer Optimized For Measurements Of Cosmic Background Radiation Anisotropies From 0.3 To 4°, Piacentini+2001
+MAXIMA	1998	CMB	Balloon		Bolometer	NTD	150,240,410,		16	16		Maxima-1: A Measurement Of The Cosmic Microwave Background Anisotropy On Angular Scales Of 10'-5°, Hanany+2000
+BOOMERANG03	2003	CMB	Balloon		Bolometer	NTD PSB	90,150,145,245,345,		16	16		Instrument, Method, Brightness And Polarisation Maps From The 2003 Flight Of Boomerang Crill+2003
+MKID_DEMOCAM	2007		Ground	CSO	KID	MKID		750/850/1000/1400		16		
+AMKID_DEMO	2011		Gound	APEX	KID	MKID	850			16		
+HUMBA	1998	General Purpose	Ground	HHT,IRAM	Bolometer	NTD	150	2mm	19	19		Mpifr
+HHT19	2000	General Purpose	Ground	HHT	Bolometer	NTD	350		19	19		Mpfir
+ARCHEOPS01	2001	CMB	Balloon		Bolometer	NTD	143,217,353,545,		8+6+6+1	21		The Cosmic Microwave Background Anisotropy Power Spectrum Measured By Archeops, Benoit+2003
+SHARC	1996	General Purpose	Ground	CSO	Bolometer	Monolithic Silicon		350/450	1*24	24		A Submillimeter High Angular Resolution Bolometer Array Camera For The Caltech Submillimeter Observatory Wang+1996
+SPIFI	1999	Spectrometry	Ground	South Pole	Bolometer	Monolithic Silicon		350-450		25		Spifi: A Direct-Detection Imaging Spectrometer For Submillimeter Wavelengths,Bradford+2002
+ZEUS	2006	General Purpose	Ground	CSO	Bolometer	Popup		450350	1*32	32		Probing Star Formation At Low And High Redshift With Zeus, A New Submillimeter Grating Spectrometer, Phd Thesis, Stevenhailey-Dunsheath 2009
+MAMBO-1	1998	General Purpose	Ground	IRAM	Bolometer	NTD		1.2mm		37		Mpifr
+SABOCA	2008	General Purpose	Ground	APEX	Bolometer	TES		350		37		Mpifr
+SIMBA	2001	General Purpose	Ground	SEST	Bolometer	NTD	250		37+5	42		Mpfir
+HFI	2009	CMB	Space	Planck	Bolometer	NTD	100-857		52	52		Initial TESt Results On Bolometers For The Planck High Frequency Instrument. Holmes+2008
+CARDIFF2mm	2012		Ground	PHYSX	KID	LEKID				60		
+QUAD	2005	CMB	Ground	South Pole	Bolometer	NTD PSB	100,150,		62	62		Quad: A High-Resolution Cosmic Microwave Background Polarimeter,. Hinderks+2009
+MUSTANG	2006	General Purpose	Ground	GBT	Bolometer	TES	90			64		Mustang: 90 Ghz Science With The Green Bank Telescope, Dicker+2008
+NIKA09	2009		Ground	IRAM	KID	NIKA			30+42	72		
+BICEP	2006	CMB	Ground	South Pole	Bolometer	NTD PSB	150		48*2	98		Cmb Polarimetry With Bicep: Instrument Characterization, Calibration, And Performance, Takahashi+2008
+MAMBO-2	2002	General Purpose	Ground	IRAM	Bolometer	NTD		1.2mm		117		Mpifr
+BOLOCAM	2000	General Purpose	Ground	CSO	Bolometer	NTD		1.1,2.1	119	119		Bolocam: Status And Observations, Haig+2003
+SCUBA	1997	General Purpose	Ground	JCMT	Bolometer	NTD		450/850	91+37	128		Scuba: A Common-User Submillimetre Camera Operating On The James Clerk Maxwell Telescope, Holland+1999
+GISMO	2007	General Purpose	Ground	IRAM	Bolometer	TES		2mm	8x16	128		Instrument Performance Of Gismo, A 2 Millimeter TES Bolometercamera Used At The Iram 30 M Telescope, Staguhn+2008
+AZTEC	2005	General Purpose	Ground	JCMT/ASTE	Bolometer	NTD		1.1mm Or 2.2mm		144		The Aztec Mm-Wavelength Camera, Wilson+2008
+CARDIFF850um	2013		Ground	PHYSX	KID	LEKID		850		150		
+ZSPEC	2006	Spectrometry	Ground	CSO	Bolometer	NTD	185-305			160		Z-Spec: A Broadband Direct-Detection Millimeter-Wave Spectrometer -instrument Status And First Results, Earle+2006
+NIKA10	2010		Ground	IRAM	KID	NIKA			112+60	172		
+NIKA11	2011		Ground	IRAM	KID	NIKA			132+132	264		
+SPIRE	2009	General Purpose	Space	Herschel	Bolometer	NTD		520 360 250	43, 88, 139	270		Herschel-Spire: Design, Performance, And Scientific Capabilities, Griffin+2006
+BLAST	2005	General Purpose	Balloon		Bolometer	NTD		250, 350, 500	149, 88 And 43	280		The Balloon-Borne Large Aperture Submillimeter Telescope: Blast, Pascale+2008
+LABOCA	2007	General Purpose	Ground	APEX	Bolometer	NTD		870		295		A New Era In Submillimetre Continuum Astronomy Has Begun: Laboca Starts Operation On Apex, Siringo+2007
+APEX-SZ	2007	SZ	Ground	Atacama	Bolometer	TES	150		330(6*55)	330		Sunyaev-Zel'dovich Effect Observations Of The Bullet Cluster 1e0657-56 With Apex-Sz, Halverston+2009
+SHARCII	2003	General Purpose	Ground	CSO	Bolometer	Popup		350/450/850 		384		Sharc Ii: A Caltech Submillimeter Observatory Facility Camera With 384 Pixels Dowell+2002
+HAWC	2005	General Purpose	Air	SOFIA	Bolometer	Popup		40-300	12x32	384		Development Of The Hawc Far-Infrared Camera For Sofia, Harper+2004
+MAKO_PATHFINDER	2013		Ground	CSO	KID	MKID		350		452		
+BICEP2	2009	CMB	Ground	South Pole	Bolometer	TES	150		512	512		The Bicep2 Cmb Polarization Experiment, Ogburn+2010
+KECK-ARRAY	2011	CMB	Ground	South Pole	Bolometer	TES	150		512	512		
+ZEUS2	2012	Spectrometery	Ground	CSO,APEX	Bolometer	TES		200-850		555		Zeus-2: A Second Generation Submillimeter Grating Spectrometer For Exploring Distant Galaxies, Ferkinhoff+2010
+SPT-SZ	2009	CMB	Ground	SPT	Bolometer	TES	95, 150, 220		160*6	960		
+POLARBEAR	2011	CMB	Ground	Atacama	Bolometer	TES	120,180,		2*637=1274	1274		Cosmology With Polarbear,Keating+2011
+EBEX	2012	CMB	Balloon		Bolometer	TES	150,250,410,		768+384+280=1432	1432		Ebex: A Balloon-Borne Cmb Polarization Experiment,Reichborn-Kjennerud+2010
+SPT-POL	2012	CMB	Ground	SPT	Bolometer	TES	90, 150		780*2	1460		
+BLAST_TNG	2016		Balloon		KID	LEKID				2000		
+ARCONS	2013	optical	Ground	Palomar	KID	MKID	Optical – nir		32x32=2048	2048		
+SPIDER	2014	CMB	Balloon		Bolometer	TES				2400		Spider: A Balloon-Borne Large-Scale Cmb Polarimeter, Crill+2008
+PACS	2009	General Purpose	Space	Herschel	Bolometer	PACS Silicon		70170	2048, 512	2560		The Photodetector Array Camera And Spectrometer (PACS) On The Herschel Space Observatory, Poglitsch+2010
+BICEP3	2015	CMB	Ground	South Pole	Bolometer	TES	150		512*5	2560		
+ACT/MBAC	2008	CMB, SZ,	Ground	ACT	Bolometer	TES	148,218,277,		3*1024=3072	3072		Overview Of The Atacama Cosmology Telescope: Receiver, Instrumentation, And Telescope Systems, Swetz+2011
+NIKA2	2015		Ground	IRAM	KID	NIKA		1000,2000	1000+4000	5000		
+POLARBEAR-2	2016	CMB	Ground	James Ax	Bolometer	TES	95 + 150			7588		The POLARBEAR-2 Experiment, Suzuki, A. et al. 2014
+SCUBA2	2011	General Purpose	Ground	JCMT	Bolometer	TES		450/850	1280*4+1280*4	10240		Characterising And Calibrating The Scuba-2 Superconducting Bolometerarrays For Science Observing, Bintley+2010
+AMKID	2015		Ground	APEX	KID	MKID	350+850		3520 + 21600	25120		
