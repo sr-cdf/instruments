@@ -11,7 +11,8 @@ MUST: include Instrument, Date, Detector_Type, Detector_Subtype, and Total_Detec
 
 PLEASE: fill in as many columns as possible.
 
-PLEASE: include a reference to the paper that describes the instrument and 
+PLEASE: include a reference to the paper that describes the instrument
+
   
 
 Detector type must be either 'Bolometer' or 'KID'
