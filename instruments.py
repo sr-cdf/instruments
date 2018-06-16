@@ -80,10 +80,10 @@ for cnt,i in enumerate(instruments):
   x = i['Date']
   y = i['Total_Detectors']
   if not x.isdigit():
-    print i['Instrument']+': date is not a number:', i
+    print(i['Instrument']+': date is not a number:', i)
     continue
   if not y.isdigit():
-    print i['Instrument']+': number of detectors is not a number:', i
+    print(i['Instrument']+': number of detectors is not a number:', i)
     continue
   
   #plot
