@@ -68,3 +68,4 @@ NIKA2	2015		Ground	IRAM	KID	NIKA		1000,2000	1000+4000	5000
 POLARBEAR-2	2016	CMB	Ground	James Ax	Bolometer	TES	95 + 150			7588		The POLARBEAR-2 Experiment, Suzuki, A. et al. 2014
 SCUBA2	2011	General Purpose	Ground	JCMT	Bolometer	TES		450/850	1280*4+1280*4	10240		Characterising And Calibrating The Scuba-2 Superconducting Bolometerarrays For Science Observing, Bintley+2010
 AMKID	2015		Ground	APEX	KID	MKID	350+850		3520 + 21600	25120		
+SPT-3G	2018	CMB	Ground	SPT	Bolometer	TES	95,150,220		(269-6)*6*10	15780	Fabrication of Detector Arrays for the SPT-3G Receiver, Posada et al.+2018
