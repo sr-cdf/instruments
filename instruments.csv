@@ -68,4 +68,20 @@ NIKA2	2015		Ground	IRAM	KID	NIKA		1000,2000	1000+4000	5000
 POLARBEAR-2	2016	CMB	Ground	James Ax	Bolometer	TES	95 + 150			7588		The POLARBEAR-2 Experiment, Suzuki, A. et al. 2014
 SCUBA2	2011	General Purpose	Ground	JCMT	Bolometer	TES		450/850	1280*4+1280*4	10240		Characterising And Calibrating The Scuba-2 Superconducting Bolometerarrays For Science Observing, Bintley+2010
 AMKID	2015		Ground	APEX	KID	MKID	350+850		3520 + 21600	25120		
-SPT-3G	2018	CMB	Ground	SPT	Bolometer	TES	95,150,220		(269-6)*6*10	15780	Fabrication of Detector Arrays for the SPT-3G Receiver, Posada et al.+2018
+SPT-3G	2018	CMB	Ground	SPT	Bolometer	TES	95,150,220		(269-6)*6*10	15780		Fabrication of Detector Arrays for the SPT-3G Receiver, Posada et al.+2018
+MUSTANG-2	2016	SZ	Ground	GBT	Bolometer	TES	90		223	223		MUSTANG2: A Large Focal Plane Array for the 100-meter Green Bank Telescope, Dicker+2014
+CLASS	2016	CMB	Ground	Atacama	Bolometer	TES	40,90,150,220		36+72+74	182		The Cosmology Large Angular Scale Surveyor, Essinger-Hileman+2014
+DARKNESS	2018	Optical	Ground	Palomar	KID	MKID	Optical		10000	10000		DARKNESS: A Microwave Kinetic Inductance Detector Integral Field Spectrograph for High-Contrast Astronomy, Meeker+2018
+AdvACT	2017	CMB	Ground	ACT	Bolometer	TES	27,39,93,145,225		3072*2	6144		The Atacama Cosmology Telescope: A Measurement of the CMB TT Power Spectrum, Aiola+2020
+DESHIMA	2019	Spectrometry	Ground	ASTE	KID	MKID	220-440		49	49		On-chip filterbank spectroscopy with a superconducting filter-bank, Endo+2019
+TolTEC	2020	General Purpose	Ground	LMT	KID	LEKID	150,220,280		2000+2000+3000	7000		TolTEC: A New mm-wave Camera for the LMT, Wilson+2020
+CONCERTO	2021	Spectrometry	Ground	APEX	KID	LEKID	130-310		2*2152	4304		CONCERTO: A High-Power Continuum Camera and Spectrometer, Ade+2020
+SO-SAT	2021	CMB	Ground	Atacama	Bolometer	TES	27,39,93,145,225,280		12000	12000		The Simons Observatory: Science goals and forecasts, Ade+2019
+SO-LAT	2022	CMB	Ground	Atacama	Bolometer	TES	27,39,93,145,225,280		30000	30000		The Simons Observatory: Science goals and forecasts, Ade+2019
+CCAT-prime	2023	General Purpose	Ground	Atacama	KID	MKID	220-850		10000	10000		The CCAT-prime Submillimeter Observatory, Aravena+2019
+LiteBIRD	2028	CMB	Space	L2	Bolometer	TES	40-402		4508	4508		LiteBIRD: A Satellite for the Studies of B-Mode Polarization, Hazumi+2019
+CMB-S4	2029	CMB	Ground	South Pole	Bolometer	TES	30-270		500000	500000		CMB-S4 Science Book, Abazajian+2016
+SuperSpec	2019	Spectrometry	Ground	LMT	KID	MKID	195-310		300	300		SuperSpec: An On-Chip mm-wave Spectrometer, Wheeler+2016
+MUSCAT	2019	General Purpose	Ground	LMT	KID	LEKID	1100		1500	1500		MUSCAT: The Mexico UK Sub-millimetre Camera for AsTronomy, Brien+2018
+A-MKID	2019	General Purpose	Ground	APEX	KID	MKID	350,850		25120	25120		A-MKID: A High-resolution MKID-based Camera for mm-wave Astronomy, Baselmans+2017
+Prime-Cam	2023	General Purpose	Ground	CCAT	KID	MKID	220-850		60000	60000		The CCAT-Prime Submillimeter Observatory, Prime-Cam Collaboration+2021

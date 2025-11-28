@@ -7,7 +7,7 @@ filename = 'instruments.csv'
 reader = csv.DictReader(open(filename), delimiter = '\t', quotechar = '"')
 instruments = [i for i in reader if i['Date'].isdigit()]
 
-textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ZEUS2','ARCONS']
+textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ZEUS2','ARCONS','AdvACT','DARKNESS','TolTEC','SO-SAT','CCAT-prime','CMB-S4','Prime-Cam']
 
 #prepare plot and add points
 f = plt.figure(figsize=(16,10))
@@ -116,12 +116,12 @@ lekids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Det
 
 
 #fit lines between given dates
-bolorange = np.linspace(1980, 2025., 10)
-tesrange = np.linspace(1980, 2025., 10)
-semicondrange = np.linspace(1980, 2025., 10)
-kidrange = np.linspace(1980, 2025., 10)
-mkidrange = np.linspace(1980., 2025., 10)
-lekidrange = np.linspace(1980., 2025., 10)
+bolorange = np.linspace(1980, 2030., 10)
+tesrange = np.linspace(1980, 2030., 10)
+semicondrange = np.linspace(1980, 2030., 10)
+kidrange = np.linspace(1980, 2030., 10)
+mkidrange = np.linspace(1980., 2030., 10)
+lekidrange = np.linspace(1980., 2030., 10)
 
 bolo_poly = np.polyfit(bolos_x, bolos_y, 1)
 bolo_fit = np.poly1d(bolo_poly)(bolorange)
@@ -178,7 +178,7 @@ ax.plot(kidrange, 10**kids_fit, '-',color='green',lw=40,zorder=0,alpha=0.3)#labe
 ax.semilogy()
 ax.yaxis.set_major_formatter(plt.FormatStrFormatter('%0.0f'))
 ax.set_ylim(0.6, 1000000.)
-ax.set_xlim(1985, 2025)
+ax.set_xlim(1985, 2030)
 ax.tick_params(axis='x', labelsize='x-large')
 ax.tick_params(axis='y', labelsize='x-large')
 ax.set_ylabel('Detectors per instrument',fontsize='x-large')
