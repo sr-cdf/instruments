@@ -7,7 +7,7 @@ filename = 'instruments.csv'
 reader = csv.DictReader(open(filename), delimiter = '\t', quotechar = '"')
 instruments = [i for i in reader if i['Date'].isdigit()]
 
-textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ZEUS2','ARCONS','AdvACT','DARKNESS','TolTEC','SO-SAT','CCAT-prime','CMB-S4','Prime-Cam']
+textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ZEUS2','ARCONS','AdvACT','DARKNESS','TolTEC','SO-SATs','ModCam','CMB-S4','Prime-Cam','DESHIMA-2.0','SO-LAT']
 
 #prepare plot and add points
 f = plt.figure(figsize=(16,10))
@@ -48,20 +48,33 @@ for cnt,i in enumerate(instruments):
     if i['Detector_Subtype'] in ['TES','TES1']:
       colour = 'gold'
       marker = 'o'
+    # Space-based TES (e.g., LiteBIRD)
+    if i['Detector_Subtype'] == 'TES-Space':
+      colour = 'gold'
+      marker = '*'
+    # Discontinued TES (e.g., CMB-S4)
+    if i['Detector_Subtype'] == 'TES-Discontinued':
+      colour = 'gray'
+      marker = 'o'
   
   elif i['Detector_Type'] in ['KID','KID1']:
     colour = 'green'
     marker='o'
-    if i['Detector_Subtype'] in ['LEKID','LEKID1']:
-      colour = 'green'
+    # UV/Optical/IR MKIDs (e.g., DARKNESS, ARCONS)
+    if i['Detector_Subtype'] == 'MKID-OIR':
+      colour = 'purple'
+      marker = 'D'
+    # Spectrometer MKIDs (e.g., DESHIMA, SuperSpec)
+    elif i['Detector_Subtype'] == 'MKID-Spec':
+      colour = 'blue'
       marker = 's'
-    if i['Detector_Subtype'] == 'NIKA':
-      colour='green'
-      marker = '^'
+    # Standard mm/submm/FIR KIDs (including LEKID, MKID, NIKA)
+    elif i['Detector_Subtype'] in ['LEKID','LEKID1','MKID','NIKA']:
+      colour = 'green'
+      marker = 'o'
   
   if i['Platform']=='Space':
     marker='*'
-    color='black'
   
   #else:
     #print i['Instrument']
@@ -98,18 +111,19 @@ for cnt,i in enumerate(instruments):
 bolos_x = [float(i['Date']) for i in instruments if i['Detector_Type'] == 'Bolometer']
 bolos_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Type'] == 'Bolometer']
 
+# TES trend excludes space-based (TES-Space) and discontinued (TES-Discontinued) instruments
 tes_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] == 'TES']
 tes_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] == 'TES']
 
-semicond_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] != 'TES')]
-semicond_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] != 'TES')]
+semicond_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] not in ['TES', 'TES-Space', 'TES-Discontinued'])]
+semicond_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] not in ['TES', 'TES-Space', 'TES-Discontinued'])]
 
+# KID trend excludes UV/optical/IR MKIDs (MKID-OIR) and Spectrometer MKIDs (MKID-Spec)
+kids_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'KID' and i['Detector_Subtype'] not in ['MKID-OIR', 'MKID-Spec'])]
+kids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'KID' and i['Detector_Subtype'] not in ['MKID-OIR', 'MKID-Spec'])]
 
-kids_x = [float(i['Date']) for i in instruments if i['Detector_Type'] == 'KID']
-kids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Type'] == 'KID']
-
-mkids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM', 'First_MKID','MKID','NIKA']]
-mkids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM','MKID','NIKA']]
+mkids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM', 'First_MKID','MKID','NIKA','LEKID']]
+mkids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM','MKID','NIKA','LEKID']]
 
 lekids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM', 'LEKID']]
 lekids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM','LEKID']]
@@ -156,10 +170,11 @@ lekid_fit = np.poly1d(lekid_poly)(lekidrange)
 #make points for legend
 plt.plot([], 'o', ms=16, color = 'red',alpha=0.7, label = 'Semiconductor Bolometers')
 plt.plot([], 'o', ms=16, color = 'gold',alpha=0.7, label = 'TES Bolometers')
-plt.plot([], 'o', ms=16, color = 'green',alpha=0.7, label = 'Distributed MKIDs')
-plt.plot([], 's', ms=16, color = 'green',alpha=0.7, label = 'LEKIDs')
-plt.plot([], '^', ms=16, color = 'green',alpha=0.7, label = 'NIKA KIDs')
-plt.plot([], '*', ms=16, color = 'black',alpha=0.7, label = 'Space-based Instruments')
+plt.plot([], 'o', ms=16, color = 'gray',alpha=0.7, label = 'TES (Discontinued)')
+plt.plot([], 'o', ms=16, color = 'green',alpha=0.7, label = 'mm/submm/FIR MKIDs')
+plt.plot([], 'D', ms=16, color = 'purple',alpha=0.7, label = 'UV/Optical/IR MKIDs')
+plt.plot([], 's', ms=16, color = 'blue',alpha=0.7, label = 'MKID Spectrometers')
+plt.plot([], '*', ms=16, color = 'gold',alpha=0.7, label = 'Space-based TES')
 
 #plot trends accounting for log axis
 #ax.plot(bolorange, 10**bolo_fit, 'b--')#label = 'Bolometers trend')
