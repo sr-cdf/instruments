@@ -227,7 +227,7 @@ ax.set_xlabel('Year',fontsize='x-large')
 plt.grid(which='major')
 plt.grid(which='minor', axis='y', linestyle=':', alpha=0.5)
 ax.minorticks_on()
-plt.legend(loc = 0, numpoints = 1, prop = {'size':9})
+plt.legend(loc = 0, numpoints = 1, prop = {'size':'x-large'})
 plt.title('Detector counts over time for mm/sub-mm/FIR astronomical instruments', fontsize='xx-large')
 plt.savefig('instruments.png')
 
