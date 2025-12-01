@@ -8,10 +8,10 @@ reader = csv.DictReader(open(filename), delimiter = '\t', quotechar = '"')
 instruments = [i for i in reader if i['Date'].isdigit()]
 
 # Instruments with labels positioned ABOVE the marker
-textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ARCONS','BOLOCAM','MKID_DEMOCAM','POLARBEAR-2','AdvACT','LiteBIRD']
+textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ARCONS','BOLOCAM','MKID_DEMOCAM','POLARBEAR-2','AdvACT','LiteBIRD','DARKNESS','SO-LAT','MUSIC']
 
 # Instruments with labels positioned BELOW the marker (explicitly listed)
-textPositionLower=['KISS','SPT-SLIM','TolTEC','TIM','ModCam','SOUK-SATs','SO-LAT-FULL','CMB-S4','ZEUS2','DARKNESS','SPT-3G','BLAST_TNG','BICEP2']
+textPositionLower=['KISS','SPT-SLIM','TolTEC','TIM','ModCam','SOUK-SATs','SO-LAT-FULL','CMB-S4','ZEUS2','SPT-3G','BLAST_TNG','BICEP2']
 
 # Future instruments (>2025) get parentheses
 futureYear = 2025
