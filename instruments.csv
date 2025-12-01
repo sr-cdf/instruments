@@ -1,5 +1,4 @@
 Instrument	Date	Field	Platform	Location	Detector_Type	Detector_Subtype	Frequencies	Wavelengths	Detector_Arrays	Total_Detectors		Reference
-												
 FIRST_TES	1995				Bolometer1	TES1				1		Bock et al
 FIRST_KID	2003				KID1	KID1				1		
 FIRST_LEKID	2008				KID1	LEKID1				1		
@@ -50,7 +49,7 @@ LABOCA	2007	General Purpose	Ground	APEX	Bolometer	NTD		870		295		A New Era In Su
 APEX-SZ	2007	SZ	Ground	Atacama	Bolometer	TES	150		330(6*55)	330		Sunyaev-Zel'dovich Effect Observations Of The Bullet Cluster 1e0657-56 With Apex-Sz, Halverston+2009
 SHARCII	2003	General Purpose	Ground	CSO	Bolometer	Popup		350/450/850 		384		Sharc Ii: A Caltech Submillimeter Observatory Facility Camera With 384 Pixels Dowell+2002
 HAWC	2005	General Purpose	Air	SOFIA	Bolometer	Popup		40-300	12x32	384		Development Of The Hawc Far-Infrared Camera For Sofia, Harper+2004
-MAKO_PATHFINDER	2013		Ground	CSO	KID	MKID		350		452		
+MAKO	2013		Ground	CSO	KID	MKID		350		452		
 BICEP2	2009	CMB	Ground	South Pole	Bolometer	TES	150		512	512		The Bicep2 Cmb Polarization Experiment, Ogburn+2010
 KECK-ARRAY	2011	CMB	Ground	South Pole	Bolometer	TES	150		512	512		
 ZEUS2	2012	Spectrometery	Ground	CSO,APEX	Bolometer	TES		200-850		555		Zeus-2: A Second Generation Submillimeter Grating Spectrometer For Exploring Distant Galaxies, Ferkinhoff+2010
@@ -67,23 +66,27 @@ ACT/MBAC	2008	CMB, SZ,	Ground	ACT	Bolometer	TES	148,218,277,		3*1024=3072	3072		
 NIKA2	2015		Ground	IRAM	KID	NIKA		1000,2000	1000+4000	5000		
 POLARBEAR-2	2016	CMB	Ground	James Ax	Bolometer	TES	95 + 150			7588		The POLARBEAR-2 Experiment, Suzuki, A. et al. 2014
 SCUBA2	2011	General Purpose	Ground	JCMT	Bolometer	TES		450/850	1280*4+1280*4	10240		Characterising And Calibrating The Scuba-2 Superconducting Bolometerarrays For Science Observing, Bintley+2010
-AMKID	2015		Ground	APEX	KID	MKID	350+850		3520 + 21600	25120		
 SPT-3G	2018	CMB	Ground	SPT	Bolometer	TES	95,150,220		(269-6)*6*10	15780		Fabrication of Detector Arrays for the SPT-3G Receiver, Posada et al.+2018
 MUSTANG-2	2016	SZ	Ground	GBT	Bolometer	TES	90		223	223		MUSTANG2: A Large Focal Plane Array for the 100-meter Green Bank Telescope, Dicker+2014
 CLASS	2016	CMB	Ground	Atacama	Bolometer	TES	40,90,150,220		72+518+510+510	1610		DOI:10.3847/1538-4357/ac397c, Eimer+2022
 DARKNESS	2018	Optical	Ground	Palomar	KID	MKID-OIR	Optical		10000	10000		DARKNESS: A Microwave Kinetic Inductance Detector Integral Field Spectrograph for High-Contrast Astronomy, Meeker+2018
 AdvACT	2016	CMB	Ground	ACT	Bolometer	TES	28,41,90,150,230		1006+1006+1720+1720+80+80	5612		DOI:10.1117/12.2233746, Thornton+2016
 DESHIMA	2019	Spectrometer	Ground	ASTE	KID	MKID-Spec	332-377		49	49		DOI:10.1007/s10909-020-02338-0, Taniguchi+2020
-TolTEC	2023	General Purpose	Ground	LMT	KID	MKID	272,215,150		(2006+1266+586)*2	7716		DOI:10.7275/36464651, DeNigris Thesis 2023
-CONCERTO	2021	Imaging Spectrometer	Ground	APEX	KID	MKID	130-310		2*2152	4304		DOI:10.1051/0004-6361/202449260, Concerto Collaboration+2024
+TolTEC	2022	General Purpose	Ground	LMT	KID	MKID	272,215,150		(2006+1266+586)*2	7716		DOI:10.7275/36464651, DeNigris Thesis 2023
+CONCERTO	2021	Imaging Spectrometer	Ground	APEX	KID	MKID-Spec-Conv	130-310		2*2152	4304		DOI:10.1051/0004-6361/202449260, Concerto Collaboration+2024
 SO-SATs	2024	CMB	Ground	Atacama	Bolometer	TES	27,39,93,145,225,280		30000	30000		DOI:10.3847/1538-4365/ad64c9, SO Collaboration+2024
-SO-LAT	2028	CMB	Ground	Atacama	Bolometer	TES	27,39,93,145,225,280		60000	60000		DOI:10.1088/1475-7516/2025/08/034, SO Collaboration+2025
-SO-LAT-2025	2025	CMB	Ground	Atacama	Bolometer	TES	27,39,93,145,225,280		31000	31000		DOI:10.1088/1475-7516/2025/08/034, SO Collaboration+2025
+SO-LAT-FULL	2028	CMB	Ground	Atacama	Bolometer	TES	27,39,93,145,225,280		60000	60000		DOI:10.1088/1475-7516/2025/08/034, SO Collaboration+2025
+SO-LAT	2025	CMB	Ground	Atacama	Bolometer	TES	27,39,93,145,225,280		31000	31000		DOI:10.1088/1475-7516/2025/08/034, SO Collaboration+2025
 ModCam	2026	General Purpose	Ground	FYST	KID	MKID	280		3456*3	10368		arxiv: Designs and Status of the First Light 280 GHz MKID Array and Mod-Cam Receiver
 LiteBIRD	2028	CMB	Space	L2	Bolometer	TES-Space	40-402		4508	4508		LiteBIRD: A Satellite for the Studies of B-Mode Polarization, Hazumi+2019
-CMB-S4	2029	CMB	Ground	South Pole	Bolometer	TES-Discontinued	30-270		500000	500000		CMB-S4 Science Book, Abazajian+2016
+CMB-S4	2033	CMB	Ground	South Pole	Bolometer	TES-Discontinued	30-270		500000	500000		CMB-S4 Science Book, Abazajian+2016
 SuperSpec	2025	Spectrometer	Ground	LMT	KID	MKID-Spec	200-300		110	110		DOI:10.1007/s10909-022-02866-x, Wheeler+2022
 MUSCAT	2021	General Purpose	Ground	LMT	KID	MKID	273		1500	1500		DOI:10.1117/12.2630377, Brien+2022
 A-MKID	2025	General Purpose	Ground	APEX	KID	MKID	350,850		25120	25120		N. Reyes et al., Early results from the amkid camara at apex, Low Temp. Detectors 2025
 Prime-Cam		General Purpose	Ground	FYST	KID	MKID	220-850		100000	100000		DOI:10.1117/12.2562757, Vavagiakis+2020
 DESHIMA-2.0	2025	Spectrometer	Ground	ASTE	KID	MKID-Spec	200-400		347	347		DOI:10.1117/1.JATIS.11.2.025007, Taniguchi+2025
+MUSIC	2012	General Purpose	Ground	CSO	KID	MKID	150,226,293,349		576	576		https://arxiv.org/pdf/1211.0595
+KISS	2021	Spectrometer	Ground	QUIJOTE	KID	MKID-Spec-Conv	120-180		632	632		https://arxiv.org/pdf/2111.01449
+SPT-SLIM	2025	Spectrometer	Ground	SPT	KID	MKID-Spec	110-180		251	251		https://arxiv.org/abs/2510.14220
+TIM	2027	Spectrometer	Balloon		KID	MKID-Spec-Conv	240-420um		3600	3600		https://arxiv.org/abs/2009.14340
+SO-UK-SATs	2027	CMB	Ground	Atacama	KID	MKID	27,39,93,145,225,280		20000	20000		SO:UK Collaboration
