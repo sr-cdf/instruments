@@ -82,7 +82,7 @@ LiteBIRD	2028	CMB	Space	L2	Bolometer	TES-Space	40-402		4508	4508		LiteBIRD: A Sa
 CMB-S4	2033	CMB	Ground	South Pole	Bolometer	TES-Discontinued	30-270		500000	500000		CMB-S4 Science Book, Abazajian+2016
 SuperSpec	2025	Spectrometer	Ground	LMT	KID	MKID-Spec	200-300		110	110		DOI:10.1007/s10909-022-02866-x, Wheeler+2022
 MUSCAT	2021	General Purpose	Ground	LMT	KID	MKID	273		1500	1500		DOI:10.1117/12.2630377, Brien+2022
-A-MKID	2025	General Purpose	Ground	APEX	KID	MKID	350,850		25120	25120		N. Reyes et al., Early results from the amkid camara at apex, Low Temp. Detectors 2025
+A-MKID	2025	General Purpose	Ground	APEX	KID	MKID	350,850		25120	25120		N. Reyes et al., Early results from the A-MKID camera at APEX, Low Temp. Detectors 2025
 Prime-Cam		General Purpose	Ground	FYST	KID	MKID	220-850		100000	100000		DOI:10.1117/12.2562757, Vavagiakis+2020
 DESHIMA-2.0	2025	Spectrometer	Ground	ASTE	KID	MKID-Spec	200-400		347	347		DOI:10.1117/1.JATIS.11.2.025007, Taniguchi+2025
 MUSIC	2012	General Purpose	Ground	CSO	KID	MKID	150,226,293,349		576	576		https://arxiv.org/pdf/1211.0595
