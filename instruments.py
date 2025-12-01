@@ -9,18 +9,8 @@ instruments = [i for i in reader if i['Date'].isdigit()]
 
 textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ZEUS2','ARCONS','AdvACT','DARKNESS','TolTEC','SO-SATs','ModCam','CMB-S4','Prime-Cam','DESHIMA-2.0','SO-LAT-FULL','MUSIC','KISS','SPT-SLIM','TIM','SO-UK-SATs']
 
-# Custom position offsets for overlapping labels (x_offset, y_factor)
-textPositionOffsets = {
-  'SPT-3G': (-2, 1.1),
-  'AdvACT': (2, 1.1),
-  'BLAST_TNG': (2, 0.85),
-  'BICEP2': (-2, 0.9),
-  'SO-LAT': (-1, 0.85),
-  'A-MKID': (1, 0.85),
-  'SO-UK-SATs': (1, 0.85),
-  'MUSIC': (0, 0.85),
-  'BICEP3': (-1, 1.1),
-}
+# Instruments that need their y-position flipped (above->below or below->above)
+textPositionFlip = ['SPT-3G', 'AdvACT', 'BLAST_TNG', 'BICEP2']
 
 # Future instruments (>2025) get parentheses
 futureYear = 2025
@@ -127,10 +117,13 @@ for cnt,i in enumerate(instruments):
   if int(x) > futureYear:
     label_text = '(' + label_text + ')'
   
-  # Apply custom position offsets for overlapping labels
-  if i['Instrument'] in textPositionOffsets:
-    x_off, y_factor = textPositionOffsets[i['Instrument']]
-    ax.text(float(x) + x_off, float(y) * y_factor, label_text, size=9, va='top' if y_factor < 1 else 'bottom', ha='center')
+  # Apply position for labels - flip for selected instruments
+  if i['Instrument'] in textPositionFlip:
+    # Flip: if normally upper, put lower; if normally lower, put upper
+    if i['Instrument'] in textPositionUpper:
+      ax.text(float(x),float(y)*0.9, label_text,size=9,va='top',ha='center')
+    else:
+      ax.text(float(x),float(y)*1.05, label_text,size=9,va='bottom',ha='center')
   elif i['Instrument'] in textPositionUpper:
     ax.text(float(x),float(y)*1.05, label_text,size=9,va='bottom',ha='center')
   else:
@@ -233,7 +226,9 @@ ax.tick_params(axis='x', labelsize='x-large')
 ax.tick_params(axis='y', labelsize='x-large')
 ax.set_ylabel('Detectors per instrument',fontsize='x-large')
 ax.set_xlabel('Year',fontsize='x-large')
-plt.grid()
+plt.grid(which='major')
+plt.grid(which='minor', axis='y', linestyle=':', alpha=0.5)
+ax.minorticks_on()
 plt.legend(loc = 0, numpoints = 1, prop = {'size':'x-large'})
 #plt.title(' Bolometric Instruments and KIDs in the FIR/(sub)mm \n')
 plt.savefig('instruments.png')
