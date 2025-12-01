@@ -17,7 +17,7 @@ textPositionLower=['KISS','SPT-SLIM','TolTEC','TIM','ModCam','SOUK-SATs','SO-LAT
 futureYear = 2025
 
 #prepare plot and add points
-f = plt.figure(figsize=(12,10))
+f = plt.figure(figsize=(12,8))
 ax = f.add_subplot(111)
 ####for i in instruments:
   #####choose colour / marker
@@ -228,8 +228,8 @@ plt.grid(which='major')
 plt.grid(which='minor', axis='y', linestyle=':', alpha=0.5)
 ax.minorticks_on()
 plt.legend(loc = 0, numpoints = 1)
-plt.title('Detector counts over time for mm/sub-mm/FIR astronomical instruments', fontsize='xx-large')
-#plt.tight_layout()
+#plt.title('Detector counts over time for mm/sub-mm/FIR astronomical instruments', fontsize='xx-large')
+plt.tight_layout()
 plt.savefig('instruments.png')
 
 plt.show()
