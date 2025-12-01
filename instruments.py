@@ -7,10 +7,17 @@ filename = 'instruments.csv'
 reader = csv.DictReader(open(filename), delimiter = '\t', quotechar = '"')
 instruments = [i for i in reader if i['Date'].isdigit()]
 
-textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ZEUS2','ARCONS']
+# Instruments with labels positioned ABOVE the marker
+textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ARCONS','BOLOCAM','MKID_DEMOCAM','POLARBEAR-2','AdvACT','LiteBIRD','DARKNESS','SO-LAT','MUSIC','BICEP2','SPIRE','SPT-3G','DESHIMA-2.0']
+
+# Instruments with labels positioned BELOW the marker (explicitly listed)
+textPositionLower=['KISS','SPT-SLIM','TolTEC','TIM','ModCam','SOUK-SATs','SO-LAT-FULL','CMB-S4','ZEUS2','SPT-3G','BLAST_TNG','BICEP2']
+
+# Future instruments (>2025) get parentheses
+futureYear = 2025
 
 #prepare plot and add points
-f = plt.figure(figsize=(16,10))
+f = plt.figure(figsize=(12,8))
 ax = f.add_subplot(111)
 ####for i in instruments:
   #####choose colour / marker
@@ -48,20 +55,37 @@ for cnt,i in enumerate(instruments):
     if i['Detector_Subtype'] in ['TES','TES1']:
       colour = 'gold'
       marker = 'o'
+    # Space-based TES (e.g., LiteBIRD)
+    if i['Detector_Subtype'] == 'TES-Space':
+      colour = 'gold'
+      marker = '*'
+    # Discontinued TES (e.g., CMB-S4)
+    if i['Detector_Subtype'] == 'TES-Discontinued':
+      colour = 'gray'
+      marker = 'o'
   
   elif i['Detector_Type'] in ['KID','KID1']:
     colour = 'green'
     marker='o'
-    if i['Detector_Subtype'] in ['LEKID','LEKID1']:
-      colour = 'green'
+    # UV/Optical/IR MKIDs (e.g., DARKNESS, ARCONS)
+    if i['Detector_Subtype'] == 'MKID-OIR':
+      colour = 'purple'
+      marker = 'D'
+    # On-chip Spectrometer MKIDs (e.g., DESHIMA, SuperSpec, SPT-SLIM)
+    elif i['Detector_Subtype'] == 'MKID-Spec':
+      colour = 'blue'
       marker = 's'
-    if i['Detector_Subtype'] == 'NIKA':
-      colour='green'
-      marker = '^'
+    # Conventional Spectrometer MKIDs (e.g., KISS, CONCERTO, TIM)
+    elif i['Detector_Subtype'] == 'MKID-Spec-Conv':
+      colour = 'darkgreen'
+      marker = 's'
+    # Standard mm/submm/FIR KIDs (including LEKID, MKID, NIKA)
+    elif i['Detector_Subtype'] in ['LEKID','LEKID1','MKID','NIKA']:
+      colour = 'green'
+      marker = 'o'
   
   if i['Platform']=='Space':
     marker='*'
-    color='black'
   
   #else:
     #print i['Instrument']
@@ -87,41 +111,55 @@ for cnt,i in enumerate(instruments):
     continue
   
   #plot
-  ax.plot(float(x), float(y), marker = marker, color = colour,  ms=10, alpha=0.7)
+  ax.plot(float(x), float(y), marker = marker, color = colour,  alpha=1)
+  
+  # Determine label text (add parentheses for future instruments)
+  label_text = i['Instrument']
+  if int(x) > futureYear:
+    label_text = '(' + label_text + ')'
+  
+  # Apply position for labels
   if i['Instrument'] in textPositionUpper:
-    ax.text(float(x),float(y)*1.05, i['Instrument'],size=9,va='bottom',ha='center')
+    ax.text(float(x),float(y)*1.05, label_text,size=9,va='bottom',ha='center')
+  elif i['Instrument'] in textPositionLower:
+    ax.text(float(x),float(y)*0.9, label_text,size=9,va='top',ha='center')
   else:
-    ax.text(float(x),float(y)*0.9, i['Instrument'],size=9,va='top',ha='center')
+    # Default: below
+    ax.text(float(x),float(y)*0.9, label_text,size=9,va='top',ha='center')
   
 
 #gather data for fits to log10 of number of detectors
-bolos_x = [float(i['Date']) for i in instruments if i['Detector_Type'] == 'Bolometer']
-bolos_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Type'] == 'Bolometer']
+# Only include instruments up to 2025 in trend lines
+maxYearForTrend = 2025
 
-tes_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] == 'TES']
-tes_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] == 'TES']
+bolos_x = [float(i['Date']) for i in instruments if i['Detector_Type'] == 'Bolometer' and float(i['Date']) <= maxYearForTrend]
+bolos_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Type'] == 'Bolometer' and float(i['Date']) <= maxYearForTrend]
 
-semicond_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] != 'TES')]
-semicond_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] != 'TES')]
+# TES trend excludes space-based (TES-Space) and discontinued (TES-Discontinued) instruments
+tes_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] == 'TES' and float(i['Date']) <= maxYearForTrend]
+tes_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] == 'TES' and float(i['Date']) <= maxYearForTrend]
 
+semicond_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] not in ['TES', 'TES-Space', 'TES-Discontinued'] and float(i['Date']) <= maxYearForTrend)]
+semicond_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] not in ['TES', 'TES-Space', 'TES-Discontinued'] and float(i['Date']) <= maxYearForTrend)]
 
-kids_x = [float(i['Date']) for i in instruments if i['Detector_Type'] == 'KID']
-kids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Type'] == 'KID']
+# KID trend excludes UV/optical/IR MKIDs (MKID-OIR), on-chip Spectrometer MKIDs (MKID-Spec), and future instruments
+kids_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'KID' and i['Detector_Subtype'] not in ['MKID-OIR', 'MKID-Spec'] and float(i['Date']) <= maxYearForTrend)]
+kids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'KID' and i['Detector_Subtype'] not in ['MKID-OIR', 'MKID-Spec'] and float(i['Date']) <= maxYearForTrend)]
 
-mkids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM', 'First_MKID','MKID','NIKA']]
-mkids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM','MKID','NIKA']]
+mkids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM', 'First_MKID','MKID','NIKA','LEKID'] and float(i['Date']) <= maxYearForTrend]
+mkids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM', 'First_MKID','MKID','NIKA','LEKID'] and float(i['Date']) <= maxYearForTrend]
 
-lekids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM', 'LEKID']]
-lekids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM','LEKID']]
+lekids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM', 'LEKID'] and float(i['Date']) <= maxYearForTrend]
+lekids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM','LEKID'] and float(i['Date']) <= maxYearForTrend]
 
 
 #fit lines between given dates
-bolorange = np.linspace(1980, 2025., 10)
-tesrange = np.linspace(1980, 2025., 10)
-semicondrange = np.linspace(1980, 2025., 10)
-kidrange = np.linspace(1980, 2025., 10)
-mkidrange = np.linspace(1980., 2025., 10)
-lekidrange = np.linspace(1980., 2025., 10)
+bolorange = np.linspace(1980, 2040., 10)
+tesrange = np.linspace(1980, 2040., 10)
+semicondrange = np.linspace(1980, 2040., 10)
+kidrange = np.linspace(1980, 2040., 10)
+mkidrange = np.linspace(1980., 2040., 10)
+lekidrange = np.linspace(1980., 2040., 10)
 
 bolo_poly = np.polyfit(bolos_x, bolos_y, 1)
 bolo_fit = np.poly1d(bolo_poly)(bolorange)
@@ -154,12 +192,15 @@ lekid_fit = np.poly1d(lekid_poly)(lekidrange)
 #plt.plot([], '^', ms=16, color = 'green', label = 'Balloon KIDs')
 
 #make points for legend
-plt.plot([], 'o', ms=16, color = 'red',alpha=0.7, label = 'Semiconductor Bolometers')
-plt.plot([], 'o', ms=16, color = 'gold',alpha=0.7, label = 'TES Bolometers')
-plt.plot([], 'o', ms=16, color = 'green',alpha=0.7, label = 'Distributed MKIDs')
-plt.plot([], 's', ms=16, color = 'green',alpha=0.7, label = 'LEKIDs')
-plt.plot([], '^', ms=16, color = 'green',alpha=0.7, label = 'NIKA KIDs')
-plt.plot([], '*', ms=16, color = 'black',alpha=0.7, label = 'Space-based Instruments')
+plt.plot([], 'o',  color = 'red',alpha=1, label = 'Semiconductor Bolometers')
+plt.plot([], '*',  color = 'red',alpha=1, label = 'Semiconductor Bolometers (Space)')
+plt.plot([], 'o',  color = 'gold',alpha=1, label = 'TES Bolometers')
+plt.plot([], '*',  color = 'gold',alpha=1, label = 'TES Bolometers (Space)')
+plt.plot([], 'o',  color = 'gray',alpha=1, label = 'TES (Discontinued)')
+plt.plot([], 'o',  color = 'green',alpha=1, label = 'mm/submm/FIR MKIDs')
+plt.plot([], 's',  color = 'darkgreen',alpha=1, label = 'MKID Spectrometers')
+plt.plot([], 'D',  color = 'purple',alpha=1, label = 'UV/Optical/IR MKIDs')
+plt.plot([], 's',  color = 'blue',alpha=1, label = 'MKID On-chip Spectrometers')
 
 #plot trends accounting for log axis
 #ax.plot(bolorange, 10**bolo_fit, 'b--')#label = 'Bolometers trend')
@@ -176,16 +217,19 @@ ax.plot(kidrange, 10**kids_fit, '-',color='green',lw=40,zorder=0,alpha=0.3)#labe
 
 #decorations
 ax.semilogy()
-ax.yaxis.set_major_formatter(plt.FormatStrFormatter('%0.0f'))
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
 ax.set_ylim(0.6, 1000000.)
-ax.set_xlim(1985, 2025)
+ax.set_xlim(1985, 2035)
 ax.tick_params(axis='x', labelsize='x-large')
 ax.tick_params(axis='y', labelsize='x-large')
 ax.set_ylabel('Detectors per instrument',fontsize='x-large')
 ax.set_xlabel('Year',fontsize='x-large')
-plt.grid()
-plt.legend(loc = 0, numpoints = 1, prop = {'size':'x-large'})
-#plt.title(' Bolometric Instruments and KIDs in the FIR/(sub)mm \n')
+plt.grid(which='major')
+plt.grid(which='minor', axis='y', linestyle=':', alpha=0.5)
+ax.minorticks_on()
+plt.legend(loc = 0, numpoints = 1)
+#plt.title('Detector counts over time for mm/sub-mm/FIR astronomical instruments', fontsize='xx-large')
+plt.tight_layout()
 plt.savefig('instruments.png')
 
 plt.show()
