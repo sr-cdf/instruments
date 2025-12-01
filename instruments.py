@@ -7,16 +7,17 @@ filename = 'instruments.csv'
 reader = csv.DictReader(open(filename), delimiter = '\t', quotechar = '"')
 instruments = [i for i in reader if i['Date'].isdigit()]
 
-textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ZEUS2','ARCONS','AdvACT','DARKNESS','TolTEC','SO-SATs','ModCam','CMB-S4','Prime-Cam','DESHIMA-2.0','SO-LAT-FULL','MUSIC','KISS','SPT-SLIM','TIM','SO-UK-SATs']
+# Instruments with labels positioned ABOVE the marker
+textPositionUpper=['FIRAS','MSAM','FIRP','SHARC','SPIFI','MAMBO-1','HUMBA','MAXIMA','ARCHEOPS01','HAWC','AZTEC','QUAD','APEX-SZ','ACT/MBAC','NIKA09','EBEX','BICEP3','ARCONS','BOLOCAM','MKID_DEMOCAM','POLARBEAR-2','AdvACT','LiteBIRD']
 
-# Instruments that need their y-position flipped (above->below or below->above)
-textPositionFlip = ['SPT-3G', 'AdvACT', 'BLAST_TNG', 'BICEP2']
+# Instruments with labels positioned BELOW the marker (explicitly listed)
+textPositionLower=['KISS','SPT-SLIM','TolTEC','TIM','ModCam','SOUK-SATs','SO-LAT-FULL','CMB-S4','ZEUS2','DARKNESS','SPT-3G','BLAST_TNG','BICEP2']
 
 # Future instruments (>2025) get parentheses
 futureYear = 2025
 
 #prepare plot and add points
-f = plt.figure(figsize=(16,10))
+f = plt.figure(figsize=(16,16))
 ax = f.add_subplot(111)
 ####for i in instruments:
   #####choose colour / marker
@@ -117,16 +118,13 @@ for cnt,i in enumerate(instruments):
   if int(x) > futureYear:
     label_text = '(' + label_text + ')'
   
-  # Apply position for labels - flip for selected instruments
-  if i['Instrument'] in textPositionFlip:
-    # Flip: if normally upper, put lower; if normally lower, put upper
-    if i['Instrument'] in textPositionUpper:
-      ax.text(float(x),float(y)*0.9, label_text,size=9,va='top',ha='center')
-    else:
-      ax.text(float(x),float(y)*1.05, label_text,size=9,va='bottom',ha='center')
-  elif i['Instrument'] in textPositionUpper:
+  # Apply position for labels
+  if i['Instrument'] in textPositionUpper:
     ax.text(float(x),float(y)*1.05, label_text,size=9,va='bottom',ha='center')
+  elif i['Instrument'] in textPositionLower:
+    ax.text(float(x),float(y)*0.9, label_text,size=9,va='top',ha='center')
   else:
+    # Default: below
     ax.text(float(x),float(y)*0.9, label_text,size=9,va='top',ha='center')
   
 
@@ -197,12 +195,12 @@ lekid_fit = np.poly1d(lekid_poly)(lekidrange)
 plt.plot([], 'o', ms=16, color = 'red',alpha=0.7, label = 'Semiconductor Bolometers')
 plt.plot([], '*', ms=16, color = 'red',alpha=0.7, label = 'Semiconductor Bolometers (Space)')
 plt.plot([], 'o', ms=16, color = 'gold',alpha=0.7, label = 'TES Bolometers')
+plt.plot([], '*', ms=16, color = 'gold',alpha=0.7, label = 'TES Bolometers (Space)')
 plt.plot([], 'o', ms=16, color = 'gray',alpha=0.7, label = 'TES (Discontinued)')
 plt.plot([], 'o', ms=16, color = 'green',alpha=0.7, label = 'mm/submm/FIR MKIDs')
+plt.plot([], 's', ms=16, color = 'darkgreen',alpha=0.7, label = 'MKID Spectrometers')
 plt.plot([], 'D', ms=16, color = 'purple',alpha=0.7, label = 'UV/Optical/IR MKIDs')
-plt.plot([], 's', ms=16, color = 'blue',alpha=0.7, label = 'On-chip MKID Spectrometers')
-plt.plot([], 's', ms=16, color = 'darkgreen',alpha=0.7, label = 'Conventional MKID Spectrometers')
-plt.plot([], '*', ms=16, color = 'gold',alpha=0.7, label = 'Space-based TES')
+plt.plot([], 's', ms=16, color = 'blue',alpha=0.7, label = 'MKID On-chip Spectrometers')
 
 #plot trends accounting for log axis
 #ax.plot(bolorange, 10**bolo_fit, 'b--')#label = 'Bolometers trend')
@@ -219,7 +217,7 @@ ax.plot(kidrange, 10**kids_fit, '-',color='green',lw=40,zorder=0,alpha=0.3)#labe
 
 #decorations
 ax.semilogy()
-ax.yaxis.set_major_formatter(plt.FormatStrFormatter('%0.0f'))
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
 ax.set_ylim(0.6, 1000000.)
 ax.set_xlim(1985, 2035)
 ax.tick_params(axis='x', labelsize='x-large')
@@ -230,7 +228,7 @@ plt.grid(which='major')
 plt.grid(which='minor', axis='y', linestyle=':', alpha=0.5)
 ax.minorticks_on()
 plt.legend(loc = 0, numpoints = 1, prop = {'size':'x-large'})
-#plt.title(' Bolometric Instruments and KIDs in the FIR/(sub)mm \n')
+plt.title('Detector counts over time for mm/sub-mm/FIR astronomical instruments', fontsize='xx-large')
 plt.savefig('instruments.png')
 
 plt.show()

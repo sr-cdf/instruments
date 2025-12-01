@@ -83,10 +83,10 @@ CMB-S4	2033	CMB	Ground	South Pole	Bolometer	TES-Discontinued	30-270		500000	5000
 SuperSpec	2025	Spectrometer	Ground	LMT	KID	MKID-Spec	200-300		110	110		DOI:10.1007/s10909-022-02866-x, Wheeler+2022
 MUSCAT	2021	General Purpose	Ground	LMT	KID	MKID	273		1500	1500		DOI:10.1117/12.2630377, Brien+2022
 A-MKID	2025	General Purpose	Ground	APEX	KID	MKID	350,850		25120	25120		N. Reyes et al., Early results from the A-MKID camera at APEX, Low Temp. Detectors 2025
-Prime-Cam		General Purpose	Ground	FYST	KID	MKID	220-850		100000	100000		DOI:10.1117/12.2562757, Vavagiakis+2020
+Prime-Cam	2030	General Purpose	Ground	FYST	KID	MKID	220,280,350,410,850		100000	100000		DOI:10.3847/1538-4365/ac9838, Vavagiakis+2022
 DESHIMA-2.0	2025	Spectrometer	Ground	ASTE	KID	MKID-Spec	200-400		347	347		DOI:10.1117/1.JATIS.11.2.025007, Taniguchi+2025
 MUSIC	2012	General Purpose	Ground	CSO	KID	MKID	150,226,293,349		576	576		https://arxiv.org/pdf/1211.0595
-KISS	2021	Spectrometer	Ground	QUIJOTE	KID	MKID-Spec-Conv	120-180		632	632		https://arxiv.org/pdf/2111.01449
+KISS	2019	Spectrometer	Ground	QUIJOTE	KID	MKID-Spec-Conv	120-180		632	632		https://arxiv.org/pdf/2111.01449
 SPT-SLIM	2025	Spectrometer	Ground	SPT	KID	MKID-Spec	110-180		251	251		https://arxiv.org/abs/2510.14220
 TIM	2027	Spectrometer	Balloon		KID	MKID-Spec-Conv	240-420um		3600	3600		https://arxiv.org/abs/2009.14340
-SO-UK-SATs	2027	CMB	Ground	Atacama	KID	MKID	27,39,93,145,225,280		20000	20000		SO:UK Collaboration
+SOUK-SATs	2027	CMB	Ground	Atacama	KID	MKID	27,39,93,145,225,280		20000	20000		SO:UK Collaboration
