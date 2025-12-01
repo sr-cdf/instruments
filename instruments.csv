@@ -90,3 +90,4 @@ KISS	2019	Spectrometer	Ground	QUIJOTE	KID	MKID-Spec-Conv	120-180		632	632		https
 SPT-SLIM	2025	Spectrometer	Ground	SPT	KID	MKID-Spec	110-180		251	251		https://arxiv.org/abs/2510.14220
 TIM	2027	Spectrometer	Balloon		KID	MKID-Spec-Conv	240-420um		3600	3600		https://arxiv.org/abs/2009.14340
 SOUK-SATs	2027	CMB	Ground	Atacama	KID	MKID	27,39,93,145,225,280		20000	20000		SO:UK Collaboration
+PRIMA	2032	General Purpose	Space	L2	KID	MKID		24-235um	60000+20000	80000		DOI:10.1117/12.3019266, Glenn+2024
