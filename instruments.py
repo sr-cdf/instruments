@@ -130,27 +130,28 @@ for cnt,i in enumerate(instruments):
 
 #gather data for fits to log10 of number of detectors
 # Only include instruments up to 2025 in trend lines
+# Exclude balloon- and space-based instruments from trend lines
 maxYearForTrend = 2025
 
-bolos_x = [float(i['Date']) for i in instruments if i['Detector_Type'] == 'Bolometer' and float(i['Date']) <= maxYearForTrend]
-bolos_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Type'] == 'Bolometer' and float(i['Date']) <= maxYearForTrend]
+bolos_x = [float(i['Date']) for i in instruments if i['Detector_Type'] == 'Bolometer' and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space']]
+bolos_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Type'] == 'Bolometer' and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space']]
 
 # TES trend excludes space-based (TES-Space) and discontinued (TES-Discontinued) instruments
-tes_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] == 'TES' and float(i['Date']) <= maxYearForTrend]
-tes_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] == 'TES' and float(i['Date']) <= maxYearForTrend]
+tes_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] == 'TES' and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space']]
+tes_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] == 'TES' and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space']]
 
-semicond_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] not in ['TES', 'TES-Space', 'TES-Discontinued'] and float(i['Date']) <= maxYearForTrend)]
-semicond_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] not in ['TES', 'TES-Space', 'TES-Discontinued'] and float(i['Date']) <= maxYearForTrend)]
+semicond_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] not in ['TES', 'TES-Space', 'TES-Discontinued'] and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space'])]
+semicond_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'Bolometer' and i['Detector_Subtype'] not in ['TES', 'TES-Space', 'TES-Discontinued'] and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space'])]
 
 # KID trend excludes UV/optical/IR MKIDs (MKID-OIR), on-chip Spectrometer MKIDs (MKID-Spec), and future instruments
-kids_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'KID' and i['Detector_Subtype'] not in ['MKID-OIR', 'MKID-Spec'] and float(i['Date']) <= maxYearForTrend)]
-kids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'KID' and i['Detector_Subtype'] not in ['MKID-OIR', 'MKID-Spec'] and float(i['Date']) <= maxYearForTrend)]
+kids_x = [float(i['Date']) for i in instruments if (i['Detector_Type'] == 'KID' and i['Detector_Subtype'] not in ['MKID-OIR', 'MKID-Spec'] and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space'])]
+kids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if (i['Detector_Type'] == 'KID' and i['Detector_Subtype'] not in ['MKID-OIR', 'MKID-Spec'] and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space'])]
 
-mkids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM', 'First_MKID','MKID','NIKA','LEKID'] and float(i['Date']) <= maxYearForTrend]
-mkids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM', 'First_MKID','MKID','NIKA','LEKID'] and float(i['Date']) <= maxYearForTrend]
+mkids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM', 'First_MKID','MKID','NIKA','LEKID'] and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space']]
+mkids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['MKIDCAM', 'First_MKID','MKID','NIKA','LEKID'] and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space']]
 
-lekids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM', 'LEKID'] and float(i['Date']) <= maxYearForTrend]
-lekids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM','LEKID'] and float(i['Date']) <= maxYearForTrend]
+lekids_x = [float(i['Date']) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM', 'LEKID'] and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space']]
+lekids_y = [np.log10(float(i['Total_Detectors'])) for i in instruments if i['Detector_Subtype'] in ['NIKA','KIDCAM','LEKID'] and float(i['Date']) <= maxYearForTrend and i['Platform'] not in ['Balloon', 'Space']]
 
 
 #fit lines between given dates
