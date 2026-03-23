@@ -11,7 +11,7 @@ ARGO	1993	CMB	Balloon		Bolometer	Composite		2.2,1.2,0.8,0.5,	4*1	4		Argo: A Ball
 FIRP	1994	General Purpose	Space	 IRTS	Bolometer	NTD		150,250,400,700,	4	4		The Far-Infrared Photometer On The Infrared Telescope In Space,Lange+1994
 APACHE	1996	CMB	Ground	Concordia	Bolometer	Composite	90,140,247,359,	3,2.1,1.3,1.1	4*1	4		Apache96 Antarctic Plateau Anisotropy Chasing Experiment: First Observing Campaign Preliminary Results, L. Valenziano+1997
 SUZIE	1996	SZ	Ground	CSO	Bolometer	Composite	142,217,269,		3*2	6		The Sunyaev-Zeldovich Infrared Experiment: A Millimeter-Wave Receiver For Cluster Cosmology,Holzapfel+1996
-ARCHEOPS99	1999	CMB	Balloon		Bolometer	NTD	143,217,353,		3*2	6		"Archeops: A High Resolution, Large Sky Coverage Balloon Experiment For Mapping Cmb Anisotropies"", Benoit+2002"
+ARCHEOPS99	1999	CMB	Balloon		Bolometer	NTD	143,217,353,		3*2	6		Archeops: A High Resolution, Large Sky Coverage Balloon Experiment For Mapping Cmb Anisotropies"", Benoit+2002
 ACBAR	2001	CMB	Ground	VIPER	Bolometer	NTD	150,220,280,350,		8	8		Acbar: The Arcminute Cosmology Bolometer Array Receiver, Runyan+2003
 SUZIE2	1998	SZ	Ground	CSO	Bolometer	NTD	145,221,355,		4*3=12	12		Measurements Of Sunyaev-Zel'dovich Effect Scaling Relations For Clusters Of Galaxies,Benson+2004
 BOOMERANG98	1998	CMB	Balloon		Bolometer	NTD	90,150,145,245,345,		16	16		The Boomerang North America Instrument: A Balloon-Borne Bolometric Radiometer Optimized For Measurements Of Cosmic Background Radiation Anisotropies From 0.3 To 4°, Piacentini+2001
