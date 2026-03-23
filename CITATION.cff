@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software or the data contained in this repository, please cite it as below."
+type: software
+title: "instruments"
+abstract: "A database and plotting tool for tracking detector counts over time across far-infrared, sub-mm, and mm astronomy instruments."
+authors:
+  - family-names: "Rowe"
+    given-names: "Sam"
+    orcid: "https://orcid.org/0000-0001-6829-1893"
+repository-code: "https://github.com/sr-cdf/instruments"
+version: "1.0.0"
+date-released: "2026-03-23"
+license: GPL-3.0
+keywords:
+  - far-infrared
+  - sub-mm
+  - mm-wave
+  - mkid
+  - tes
+  - bolometer
+  - detectors
+  - instrumentation
+  - astronomy
