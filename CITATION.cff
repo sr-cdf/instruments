@@ -7,6 +7,7 @@ authors:
   - family-names: "Rowe"
     given-names: "Sam"
     orcid: "https://orcid.org/0000-0001-6829-1893"
+doi: "10.5281/zenodo.19185605"
 repository-code: "https://github.com/sr-cdf/instruments"
 version: "1.0.0"
 date-released: "2026-03-23"
@@ -21,3 +22,4 @@ keywords:
   - detectors
   - instrumentation
   - astronomy
+
