@@ -1,7 +1,7 @@
 # instruments
 
-[![DOI](https://zenodo.org/badge/119964879.svg)](https://doi.org/10.5281/zenodo.1918560)
 [![DOI](https://zenodo.org/badge/latestdoi/119964879)](https://zenodo.org/badge/latestdoi/119964879)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19185726.svg)](https://zenodo.org/badge/latestdoi/119964879)
 
 A database and plotting tool for tracking detector counts over time across far-infrared, sub-mm, and mm astronomy instruments.
 
